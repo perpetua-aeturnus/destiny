@@ -16,7 +16,7 @@ document.addEventListener("click", () => {
 
 const instructions = [
 "you have entered the question phase",
-"make sure you are though with the rules",
+"make sure you are thorough with the rules",
 "you will be tested on few questions",
 "each question is meant to assess your ability and your ideas",
 "this questions will be processed for further evaluation",
@@ -94,3 +94,4 @@ continueBtn.addEventListener("click", () => {
 /* Start typing */
 
 window.onload = typeNextLine;
+
