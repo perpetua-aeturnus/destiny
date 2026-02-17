@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Loading</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div id="imageBox" class="image-box">
+        <img id="slideshowImage" src="img1.jpg" />
+        <div class="loading-circle"></div>
+    </div>
+
+    <div id="loadingText" class="loading-text">LOADING...</div>
+
+    <button id="continueBtn" class="continue hidden" onclick="redirectToLoad2()">
+        CONTINUE
+    </button>
+
+</div>
+
+<audio id="clickSound" src="click.mp3" preload="auto"></audio>
+
+<script>
+    function redirectToLoad2() {
+        const click = document.getElementById("clickSound");
+        click.play();
+
+        setTimeout(() => {
+            window.location.href = "question1/index.html";
+        }, 200); // small delay for sound
+    }
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
