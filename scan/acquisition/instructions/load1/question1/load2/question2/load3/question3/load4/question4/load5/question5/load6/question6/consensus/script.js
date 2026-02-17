@@ -42,7 +42,7 @@ const instructions = [
 { text: "Such a filth of a man who doesnt remember...!!", color: "#00ff41" },
 { text: "One who doesnt wish ur demands , your dates , your moods", color: "#00ff41" },
 { text: "A man who can't be eslaven cant be lovedd..!!!!", color: "#00ff41" },
-{ text: "Such a dissapointment doesnt deserve Angels", color: "#00ff41", angels: true },
+{ text: "Such a dissapointment doesnt deserve an Angel", color: "#00ff41", angel: true },
 
 { gap: true },
 { gap: true },
@@ -98,10 +98,10 @@ function typeLine(obj, callback) {
 
         } else {
 
-            if (obj.angels) {
+            if (obj.angel) {
                 line.innerHTML = line.innerHTML.replace(
-                    "Angels",
-                    '<span class="cursive">Angels</span>'
+                    "Angel",
+                    '<span class="cursive">Angel</span>'
                 );
             }
 
@@ -137,3 +137,4 @@ continueBtn.addEventListener("click", () => {
 
 
 window.onload = typeNextLine;
+
