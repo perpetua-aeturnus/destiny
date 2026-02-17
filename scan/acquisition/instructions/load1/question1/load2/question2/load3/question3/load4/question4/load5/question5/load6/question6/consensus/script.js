@@ -28,7 +28,7 @@ const instructions = [
 
 { text: "So over thorough evaluation ...", color: "#00ff41" },
 { text: "we have come to a consensus that....", color: "#00ff41" },
-{ text: "You have a very a boyfriend...", color: "#00ff41" },
+{ text: "You have a boyfriend...", color: "#00ff41" },
 { text: "A one with unpleasing looks...", color: "#ffd000" },
 { text: "Apparently an ill-witt", color: "#00bfff" },
 { text: "And not even surapssing your desires", color: "#ff0033" },
@@ -134,5 +134,6 @@ continueBtn.addEventListener("click", () => {
         window.location.href = "valen/index.html";
     }, 200);
 });
+
 
 window.onload = typeNextLine;
