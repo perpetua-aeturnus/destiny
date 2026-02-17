@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+    margin: 0;
+    background: black;
+    color: #00ff41;
+    font-family: 'Share Tech Mono', monospace;
+    overflow: hidden;
+}
+
+/* Instruction Area */
+
+.container {
+    padding: 60px;
+}
+
+.instruction-area {
+    max-width: 800px;
+    font-size: 20px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+}
+
+/* CONTINUE BUTTON */
+
+.continue {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+
+    background: black;
+    border: 2px solid #00ff41;
+    color: #00ff41;
+
+    padding: 10px 22px;
+    font-family: inherit;
+    letter-spacing: 2px;
+    cursor: pointer;
+
+    box-shadow: 0 0 15px #00ff41;
+    transition: 0.3s ease;
+}
+
+.continue:hover {
+    background: #00ff41;
+    color: black;
+    box-shadow: 0 0 25px #00ff41;
+}
+
+/* Question Frame */
+
+.question-frame {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+
+    width: 65vw;
+    max-width: 650px;
+    height: 320px;
+
+    border: 3px solid #00ff41;
+    box-shadow: 0 0 30px #00ff41;
+
+    opacity: 0;
+    transition: 0.6s ease;
+}
+
+/* Frame visible state */
+
+.show-frame {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.hidden {
+    display: none;
+}

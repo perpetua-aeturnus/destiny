@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Question Phase</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div id="instructionArea" class="instruction-area"></div>
+
+    <!-- Continue Button -->
+    <button id="continueBtn" class="continue hidden" onclick="redirectToLoad1()">
+        CONTINUE
+    </button>
+
+    <div id="questionFrame" class="question-frame hidden"></div>
+
+</div>
+
+<!-- Sounds -->
+<audio id="typeSound" src="type.mp3"></audio>
+<audio id="clickSound" src="click.mp3"></audio>
+
+<script>
+    // Redirect Function
+    function redirectToLoad1() {
+        window.location.href = "load1/index.html";
+    }
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
