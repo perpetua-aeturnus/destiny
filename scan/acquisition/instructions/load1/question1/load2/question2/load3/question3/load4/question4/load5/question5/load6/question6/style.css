@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    --theme-color: #ff2d8d;  /* neon pink */
+}
+
+body {
+    margin: 0;
+    background: black;
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--theme-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-frame {
+    width: 60vw;
+    max-width: 650px;
+    padding: 60px 40px;
+    border: 3px solid var(--theme-color);
+    box-shadow: 
+        0 0 25px var(--theme-color),
+        inset 0 0 15px var(--theme-color);
+    text-align: center;
+}
+
+.question-text {
+    font-size: 26px;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+/* Buttons container */
+
+.buttons-area {
+    position: relative;
+    width: 100%;
+    height: 120px;
+}
+
+/* Base button */
+
+.terminal-btn {
+    padding: 12px 30px;
+    background: black;
+    border: 2px solid var(--theme-color);
+    color: var(--theme-color);
+    font-family: inherit;
+    letter-spacing: 2px;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--theme-color);
+    transition: 0.2s ease;
+}
+
+/* YES stays fixed */
+#yesBtn {
+    position: absolute;
+    left: 25%;
+    top: 40px;
+}
+
+/* NO moves */
+.no-btn {
+    position: absolute;
+    left: 60%;
+    top: 40px;
+    transition: transform 0.2s ease;
+}
+
+/* Tease message */
+
+.tease-msg {
+    position: absolute;
+    bottom: -25px;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
