@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    --theme-color: #ff0033; /* red */
+}
+
+body {
+    margin: 0;
+    background: black;
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--theme-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-frame {
+    width: 60vw;
+    max-width: 700px;
+    padding: 60px 40px;
+    border: 3px solid var(--theme-color);
+    box-shadow: 0 0 25px var(--theme-color),
+                inset 0 0 15px var(--theme-color);
+    text-align: center;
+}
+
+.question-text {
+    font-size: 26px;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+/* Vertical button area */
+.button-area {
+    position: relative;
+    height: 220px;
+}
+
+/* Big button (5:1 ratio) */
+.big-btn {
+    position: absolute;
+    width: 100%;
+    max-width: 500px;
+    height: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    background: black;
+    border: 2px solid var(--theme-color);
+    color: var(--theme-color);
+    box-shadow: 0 0 20px var(--theme-color);
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    overflow: hidden;
+}
+
+/* Button text above cracks */
+.btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+/* SVG Crack styling */
+.crack-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.crack-svg path {
+    stroke: var(--theme-color);
+    stroke-width: 1.5;
+    fill: none;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 4px var(--theme-color));
+}
+/* Main crack layer */
+.crack-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* Create multiple branching cracks */
+.crack-layer::before,
+.crack-layer::after {
+    content: "";
+    position: absolute;
+    background: var(--theme-color);
+    opacity: 0.6;
+    box-shadow: 0 0 4px var(--theme-color);
+}
+
+/* Primary vertical crack */
+.crack-layer::before {
+    width: 2px;
+    height: 90%;
+    left: 30%;
+    top: 5%;
+    transform: rotate(8deg);
+}
+
+/* Secondary branch crack */
+.crack-layer::after {
+    width: 2px;
+    height: 70%;
+    left: 32%;
+    top: 20%;
+    transform: rotate(-35deg);
+}
+
+/* Extra random cracks on edges */
+.big-btn::before,
+.big-btn::after {
+    content: "";
+    position: absolute;
+    background: var(--theme-color);
+    opacity: 0.5;
+    box-shadow: 0 0 4px var(--theme-color);
+}
+
+/* Edge crack left */
+.big-btn::before {
+    width: 2px;
+    height: 40%;
+    left: 5%;
+    top: 30%;
+    transform: rotate(45deg);
+}
+
+/* Edge crack right */
+.big-btn::after {
+    width: 2px;
+    height: 50%;
+    right: 8%;
+    top: 25%;
+    transform: rotate(-50deg);
+}
+
+/* Crack overlay effect */
+.big-btn::before,
+.big-btn::after {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 2px;
+    background: var(--theme-color);
+    opacity: 0.6;
+}
+
+/* Diagonal crack 1 */
+.big-btn::before {
+    top: 30%;
+    left: -20%;
+    transform: rotate(25deg);
+}
+
+/* Diagonal crack 2 */
+.big-btn::after {
+    bottom: 30%;
+    left: -20%;
+    transform: rotate(-30deg);
+}
+
+/* Small button */
+.small-btn {
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+
+    font-size: 14px;
+
+    background: black;
+    border: 2px solid var(--theme-color);
+    color: var(--theme-color);
+    box-shadow: 0 0 10px var(--theme-color);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Hover effect */
+.big-btn:hover,
+.small-btn:hover {
+    background: var(--theme-color);
+    color: black;
+    box-shadow: 0 0 30px var(--theme-color);
+}
