@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    --theme-color: #00bfff; /* terminal blue */
+}
+
+body {
+    margin: 0;
+    background: black;
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--theme-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-frame {
+    width: 60vw;
+    max-width: 650px;
+    padding: 60px 40px;
+
+    border: 3px solid var(--theme-color);
+    box-shadow:
+        0 0 25px var(--theme-color),
+        inset 0 0 15px var(--theme-color);
+
+    text-align: center;
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.question-text {
+    font-size: 26px;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+#dynamicWord {
+    transition: 0.2s ease;
+    font-weight: bold;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.terminal-btn {
+    padding: 12px 30px;
+    background: black;
+    border: 2px solid var(--theme-color);
+    color: var(--theme-color);
+    font-family: inherit;
+    letter-spacing: 2px;
+    cursor: pointer;
+
+    box-shadow: 0 0 15px var(--theme-color);
+    transition: 0.3s ease;
+}
+
+.terminal-btn:hover {
+    background: var(--theme-color);
+    color: black;
+    box-shadow: 0 0 30px var(--theme-color);
+}
+
+/* Selected state */
+
+.selected {
+    background: var(--theme-color);
+    color: black;
+    box-shadow: 0 0 35px var(--theme-color);
+    transform: scale(1.05);
+}
