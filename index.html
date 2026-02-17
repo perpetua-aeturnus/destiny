@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Perpetua Aeturnus</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- INTRO SCREEN -->
+<div id="introScreen" class="screen">
+    <div class="terminal-box">
+        <div id="introText"></div>
+        <span class="cursor"></span>
+        <div class="small-tag">@perpetua_aeturnus</div>
+
+        <div id="buttons" class="hidden">
+            <button onclick="buttonClick(true)">YES</button>
+            <button onclick="buttonClick(false)">NO</button>
+        </div>
+    </div>
+</div>
+
+<!-- STORY SCREEN -->
+<div id="storyScreen" class="story hidden">
+    <div id="storyText"></div>
+
+    <!-- Wireframe Earth -->
+    <div class="earth-container">
+        <div class="globe">
+            <div class="meridian"></div>
+            <div class="parallel"></div>
+        </div>
+    </div>
+
+    <!-- Continue Button -->
+    <button id="continueBtn" class="continue hidden" onclick="redirectToScan()">
+        CONTINUE
+    </button>
+</div>
+
+<!-- Sounds -->
+<audio id="typeSound" src="https://assets.mixkit.co/sfx/preview/mixkit-typewriter-soft-click-1125.mp3"></audio>
+<audio id="clickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3"></audio>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="soundtrack.mp3">
+</audio>
+
+<script>
+    // Redirect Function
+    function redirectToScan() {
+        window.location.href = "scan/index.html";
+    }
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
