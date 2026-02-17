@@ -86,10 +86,11 @@ continueBtn.addEventListener("click", () => {
     clickSound.play();
 
     setTimeout(() => {
-        window.location.href = "question1.html";
+        window.location.href = "load1/index.html";
     }, 200);
 
 });
 
 /* Start typing */
+
 window.onload = typeNextLine;
