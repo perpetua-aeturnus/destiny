@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+    margin: 0;
+    background: black;
+    color: #00ff41;
+    font-family: 'Share Tech Mono', monospace;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* MAIN WRAPPER */
+
+.main-container {
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+}
+
+/* =========================
+   SCAN FRAME (BIGGER NOW)
+   ========================= */
+
+.scan-box {
+    width: 70vw;                /* responsive large frame */
+    max-width: 650px;           /* desktop cap */
+    aspect-ratio: 4 / 3;        /* consistent proportion */
+    margin: 0 auto;
+
+    border: 3px solid #00ff41;
+    position: relative;
+    overflow: hidden;
+
+    box-shadow:
+        0 0 20px #00ff41,
+        inset 0 0 15px #00ff41;
+}
+
+/* =========================
+   VIDEO + FREEZE CANVAS
+   ========================= */
+
+video,
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;     /* camera fills frame */
+}
+
+/* Canvas hidden initially */
+canvas {
+    display: none;
+}
+
+/* =========================
+   IMAGE DISPLAY INSIDE FRAME
+   ========================= */
+
+#frameImage {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 90%;
+    max-height: 90%;
+
+    object-fit: contain;   /* ensures no cropping */
+}
+
+/* =========================
+   SCAN INSTRUCTION TEXT
+   ========================= */
+
+.scan-text {
+    position: absolute;
+    bottom: 15px;                /* moved downward */
+    width: 100%;
+
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+
+    background: rgba(0, 0, 0, 0.65);
+    padding: 8px 0;
+
+    z-index: 3;
+}
+
+/* =========================
+   SCANNER LINE
+   ========================= */
+
+.scan-line {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+
+    background: #ff0000;
+    box-shadow: 0 0 30px red;
+
+    animation: scanMove 2s linear infinite;
+    z-index: 2;
+}
+
+@keyframes scanMove {
+    0%   { top: 0; }
+    100% { top: 100%; }
+}
+
+/* VERIFIED STATE */
+
+.verified {
+    background: #00ff41 !important;
+    box-shadow: 0 0 35px #00ff41 !important;
+}
+
+/* =========================
+   TEXT BELOW FRAME
+   ========================= */
+
+.dynamic-text {
+    margin-top: 40px;
+    font-size: 26px;
+    min-height: 60px;
+    letter-spacing: 2px;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 34px;
+    text-shadow: 0 0 25px #00ff41;
+}
+
+/* =========================
+   CONTINUE BUTTON
+   ========================= */
+
+.continue {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+
+    background: black;
+    border: 2px solid #00ff41;
+    color: #00ff41;
+
+    padding: 10px 22px;
+    cursor: pointer;
+    font-family: inherit;
+
+    transition: 0.3s;
+}
+
+.continue:hover {
+    background: #00ff41;
+    color: black;
+    box-shadow: 0 0 20px #00ff41;
+}
+
+/* Utility */
+
+.hidden {
+    display: none;
+}

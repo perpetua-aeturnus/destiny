@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Verification Terminal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <div class="scan-box">
+
+        <!-- Live Video -->
+        <video id="video" autoplay muted></video>
+
+        <!-- Frozen Canvas -->
+        <canvas id="freezeCanvas"></canvas>
+
+        <!-- Image Replacement -->
+        <img id="frameImage" class="hidden"/>
+
+        <!-- Scanner Line -->
+        <div class="scan-line" id="scanLine"></div>
+
+        <!-- Scan Text -->
+        <div class="scan-text" id="scanText">
+            Enable camera and audio<br>
+            Adjust your face in front of camera
+        </div>
+
+    </div>
+
+    <div id="dynamicText" class="dynamic-text"></div>
+
+    <!-- Continue Button -->
+    <button id="continueBtn" class="continue hidden" onclick="redirectToAcquisition()">
+        CONTINUE
+    </button>
+
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="soundtrack.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    // Redirect Function
+    function redirectToAcquisition() {
+        window.location.href = "acquisition/index.html";
+    }
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
