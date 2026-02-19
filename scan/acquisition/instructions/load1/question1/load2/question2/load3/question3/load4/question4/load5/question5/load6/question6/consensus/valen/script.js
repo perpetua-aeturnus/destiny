@@ -1,8 +1,10 @@
+
+You said:
 const totalImages = 24;
 const images = [];
 
 for (let i = 1; i <= totalImages; i++) {
-    images.push(`img${i}.png`);
+    images.push(img${i}.png);
 }
 
 const texts = [
@@ -44,24 +46,21 @@ const music = document.getElementById("bgMusic");
 
 textDisplay.innerText = texts[0];
 
-/* Smooth fade transition */
-imageFrame.style.transition = "opacity 0.8s ease-in-out";
-
 document.addEventListener("click", () => {
     music.play();
 }, { once: true });
 
-/* NO BUTTON LOGIC */
+/* UPDATED FADE LOGIC */
 
 noBtn.addEventListener("click", () => {
 
     if (currentIndex < totalImages - 1 && !yesPressed) {
 
         currentIndex++;
-
         imageFrame.src = images[currentIndex];
         textDisplay.innerText = texts[currentIndex];
 
+        /* Even fade across 23 presses */
         noFade -= 1 / (totalImages - 1);
         noBtn.style.opacity = noFade;
 
@@ -70,8 +69,6 @@ noBtn.addEventListener("click", () => {
         }
     }
 });
-
-/* YES BUTTON LOGIC */
 
 yesBtn.addEventListener("click", () => {
 
@@ -83,22 +80,14 @@ yesBtn.addEventListener("click", () => {
         currentIndex++;
 
         if (currentIndex < images.length) {
-
-            imageFrame.style.opacity = 0;
-
-            setTimeout(() => {
-                imageFrame.src = images[currentIndex];
-                imageFrame.style.opacity = 1;
-            }, 400);
-
+            imageFrame.src = images[currentIndex];
         } else {
             clearInterval(interval);
             launchFinalHeart();
         }
 
-    }, 2000); // 2 seconds per image
+    }, 500);
 });
-
 
 /* FINAL HEART */
 
@@ -149,5 +138,6 @@ function createHeart() {
     document.body.appendChild(heart);
     setTimeout(() => heart.remove(), 6000);
 }
+
 
 setInterval(createHeart, 300);
