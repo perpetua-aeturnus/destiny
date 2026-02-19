@@ -44,21 +44,24 @@ const music = document.getElementById("bgMusic");
 
 textDisplay.innerText = texts[0];
 
+/* Smooth fade transition */
+imageFrame.style.transition = "opacity 0.8s ease-in-out";
+
 document.addEventListener("click", () => {
     music.play();
 }, { once: true });
 
-/* UPDATED FADE LOGIC */
+/* NO BUTTON LOGIC */
 
 noBtn.addEventListener("click", () => {
 
     if (currentIndex < totalImages - 1 && !yesPressed) {
 
         currentIndex++;
+
         imageFrame.src = images[currentIndex];
         textDisplay.innerText = texts[currentIndex];
 
-        /* Even fade across 23 presses */
         noFade -= 1 / (totalImages - 1);
         noBtn.style.opacity = noFade;
 
@@ -67,6 +70,8 @@ noBtn.addEventListener("click", () => {
         }
     }
 });
+
+/* YES BUTTON LOGIC */
 
 yesBtn.addEventListener("click", () => {
 
@@ -78,14 +83,22 @@ yesBtn.addEventListener("click", () => {
         currentIndex++;
 
         if (currentIndex < images.length) {
-            imageFrame.src = images[currentIndex];
+
+            imageFrame.style.opacity = 0;
+
+            setTimeout(() => {
+                imageFrame.src = images[currentIndex];
+                imageFrame.style.opacity = 1;
+            }, 400);
+
         } else {
             clearInterval(interval);
             launchFinalHeart();
         }
 
-    }, 500);
+    }, 2000); // 2 seconds per image
 });
+
 
 /* FINAL HEART */
 
