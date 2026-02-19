@@ -1,5 +1,3 @@
-
-You said:
 const totalImages = 24;
 const images = [];
 
@@ -141,3 +139,4 @@ function createHeart() {
 
 
 setInterval(createHeart, 300);
+
