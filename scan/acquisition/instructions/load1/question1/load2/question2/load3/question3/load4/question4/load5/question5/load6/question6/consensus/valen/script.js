@@ -2,7 +2,7 @@ const totalImages = 24;
 const images = [];
 
 for (let i = 1; i <= totalImages; i++) {
-    images.push(img${i}.png);
+    images.push(`img${i}.png`);
 }
 
 const texts = [
@@ -44,21 +44,28 @@ const music = document.getElementById("bgMusic");
 
 textDisplay.innerText = texts[0];
 
+/* Smooth fade transition setup */
+imageFrame.style.transition = "opacity 1s ease-in-out";
+imageFrame.style.opacity = 1;
+
+/* Music play once */
 document.addEventListener("click", () => {
-    music.play();
+    music.play().catch(() => {});
 }, { once: true });
 
-/* UPDATED FADE LOGIC */
+/* NO BUTTON */
 
 noBtn.addEventListener("click", () => {
 
-    if (currentIndex < totalImages - 1 && !yesPressed) {
+    if (yesPressed) return;
+
+    if (currentIndex < totalImages - 1) {
 
         currentIndex++;
+
         imageFrame.src = images[currentIndex];
         textDisplay.innerText = texts[currentIndex];
 
-        /* Even fade across 23 presses */
         noFade -= 1 / (totalImages - 1);
         noBtn.style.opacity = noFade;
 
@@ -68,24 +75,50 @@ noBtn.addEventListener("click", () => {
     }
 });
 
+
+/* YES BUTTON */
+
 yesBtn.addEventListener("click", () => {
 
+    if (yesPressed) return;
     yesPressed = true;
+
+    noBtn.style.display = "none";
+    yesBtn.style.display = "none";
+
     textDisplay.innerText = "I knew it 💖✨";
 
-    let interval = setInterval(() => {
+    let slideshowIndex = currentIndex;
 
-        currentIndex++;
+    function showNextImage() {
 
-        if (currentIndex < images.length) {
-            imageFrame.src = images[currentIndex];
-        } else {
-            clearInterval(interval);
+        slideshowIndex++;
+
+        if (slideshowIndex >= images.length) {
             launchFinalHeart();
+            return;
         }
 
-    }, 500);
+        /* Fade out */
+        imageFrame.style.opacity = 0;
+
+        setTimeout(() => {
+
+            imageFrame.src = images[slideshowIndex];
+
+            /* Fade in */
+            imageFrame.style.opacity = 1;
+
+            /* Wait 2 seconds before next */
+            setTimeout(showNextImage, 2000);
+
+        }, 1000); // wait for fade out (matches transition)
+    }
+
+    /* Start after small pause */
+    setTimeout(showNextImage, 2000);
 });
+
 
 /* FINAL HEART */
 
@@ -124,19 +157,22 @@ function burstHeart(heart) {
     }
 }
 
-/* Background floating hearts */
+
+/* Floating background hearts */
 
 function createHeart() {
+
     const heart = document.createElement("div");
     heart.classList.add("heart");
     heart.innerHTML = "💗";
+
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.fontSize = Math.random() * 20 + 15 + "px";
     heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
     document.body.appendChild(heart);
+
     setTimeout(() => heart.remove(), 6000);
 }
 
-
 setInterval(createHeart, 300);
-
